@@ -42,7 +42,7 @@ class AbstractStockQtyPlugin
         $stockItemConfig = $this->getStockItemConfiguration->execute($sku, $stockId);
 
         return $stockItemConfig->isManageStock()
-            && $this->isSourceItemManagementAllowedForProductType->execute($subject->getProduct()->getTypeId())
+            && $this->isSourceItemManagementAllowedForProductType->execute($product->getTypeId())
             && $this->isSalableQtyAvailableForDisplaying->execute(
             $this->getProductSalableQty->execute($sku, $stockId),
             $stockItemConfig
