@@ -1,0 +1,48 @@
+{
+  "name": "opengento/module-inventory-catalog-stock-qty-ui",
+  "description": "FIX Magento (Adobe Commerce) Multi-Stock-Inventory (MSI) stock quantity.",
+  "require": {
+    "magento/framework": "*",
+    "magento/module-catalog-inventory": "*",
+    "magento/module-inventory-sales-api": "*",
+    "magento/module-inventory-configuration-api": "*",
+    "magento/module-inventory-catalog-frontend-ui": "*",
+    "magento/module-inventory-sales-frontend-ui": "*"
+  },
+  "require-dev": {
+    "magento/magento-coding-standard": "^33",
+    "roave/security-advisories": "dev-latest"
+  },
+  "suggest": {},
+  "type": "magento2-module",
+  "license": [
+    "MIT"
+  ],
+  "homepage": "https://github.com/opengento/magento2-inventory-stock-qty",
+  "authors": [
+    {
+      "name": "Opengento Team",
+      "email": "opengento@gmail.com",
+      "homepage": "https://opengento.fr/",
+      "role": "lead"
+    },
+    {
+      "name": "Thomas Klein",
+      "email": "thomaskein876@gmail.com",
+      "homepage": "https://www.linkedin.com/in/thomas-klein/",
+      "role": "maintainer"
+    }
+  ],
+  "support": {
+    "source": "https://github.com/opengento/magento2-inventory-stock-qty",
+    "issues": "https://github.com/opengento/magento2-inventory-stock-qty/issues"
+  },
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Opengento\\InventoryStockQty\\": ""
+    }
+  }
+}

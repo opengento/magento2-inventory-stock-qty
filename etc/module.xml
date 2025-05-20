@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © OpenGento, All rights reserved.
+ * See LICENSE bundled with this library for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+    <module name="Opengento_InventoryStockQty">
+        <sequence>
+            <module name="Magento_CatalogInventory"/>
+            <module name="Magento_InventorySalesApi"/>
+            <module name="Magento_InventoryConfigurationApi"/>
+            <module name="Magento_InventoryCatalogFrontendUi"/>
+            <module name="Magento_InventorySalesFrontendUi"/>
+        </sequence>
+    </module>
+</config>
