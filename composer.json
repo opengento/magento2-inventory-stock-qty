@@ -1,5 +1,5 @@
 {
-  "name": "opengento/module-inventory-catalog-stock-qty-ui",
+  "name": "opengento/module-inventory-stock-qty",
   "description": "FIX Magento (Adobe Commerce) Multi-Stock-Inventory (MSI) stock quantity.",
   "require": {
     "magento/framework": "*",
