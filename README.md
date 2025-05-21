@@ -5,7 +5,7 @@
 [![Packagist](https://img.shields.io/packagist/dt/opengento/module-inventory-stock-qty.svg?style=flat-square)](https://packagist.org/packages/opengento/module-inventory-stock-qty/stats)
 [![Packagist](https://img.shields.io/packagist/dm/opengento/module-inventory-stock-qty.svg?style=flat-square)](https://packagist.org/packages/opengento/module-inventory-stock-qty/stats)
 
-This module fix the Magento MSI stock quantity resolver.
+This module fix the Magento MSI stock quantity displaying on product pages.
 
 - [Setup](#setup)
     - [Composer installation](#composer-installation)
