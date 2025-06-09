@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace Opengento\InventoryStockQty\Plugin\Block;
 
+use Magento\Catalog\Model\Product;
 use Magento\CatalogInventory\Block\Stockqty\AbstractStockqty;
 use Magento\Framework\Exception\InputException;
 use Magento\Framework\Exception\LocalizedException;
@@ -37,16 +38,9 @@ class AbstractStockQtyPlugin
     public function aroundIsMsgVisible(AbstractStockqty $subject, callable $proceed): bool
     {
         $product = $subject->getProduct();
-        $sku = $product->getSku();
-        $stockId = (int)$this->stockByWebsiteId->execute((int)$product->getStore()->getWebsiteId())->getStockId();
-        $stockItemConfig = $this->getStockItemConfiguration->execute($sku, $stockId);
 
-        return $stockItemConfig->isManageStock()
-            && $this->isSourceItemManagementAllowedForProductType->execute($product->getTypeId())
-            && $this->isSalableQtyAvailableForDisplaying->execute(
-            $this->getProductSalableQty->execute($sku, $stockId),
-            $stockItemConfig
-        );
+        return $this->isSourceItemManagementAllowedForProductType->execute($product->getTypeId())
+            && $this->isSalableQtyAvailable($product);
     }
 
     /**
@@ -63,6 +57,23 @@ class AbstractStockQtyPlugin
             (int)$this->stockByWebsiteId->execute(
                 (int)$product->getStore()->getWebsiteId()
             )->getStockId()
+        );
+    }
+
+    /**
+     * @throws SkuIsNotAssignedToStockException
+     * @throws InputException
+     * @throws LocalizedException
+     */
+    private function isSalableQtyAvailable(Product $product): bool
+    {
+        $sku = $product->getSku();
+        $stockId = (int)$this->stockByWebsiteId->execute((int)$product->getStore()->getWebsiteId())->getStockId();
+        $stockItemConfig = $this->getStockItemConfiguration->execute($sku, $stockId);
+
+        return $stockItemConfig->isManageStock() && $this->isSalableQtyAvailableForDisplaying->execute(
+            $this->getProductSalableQty->execute($sku, $stockId),
+            $stockItemConfig
         );
     }
 }
